@@ -1,0 +1,4 @@
+<oplus-config>
+    <!-- xieliangzhuo@ANDROID.GMS, 2022/1/11, Add for disable cn gms -->
+    <!-- <oplus-feature name="oplus.software.disable_cn_gms" /> -->
+</oplus-config>

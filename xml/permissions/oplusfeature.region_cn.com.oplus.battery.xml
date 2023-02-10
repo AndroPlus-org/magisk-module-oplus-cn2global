@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<oplus-config>
+    <!-- KaiFa.Zeng@ANDROID.POWER, 2020/07/02, Add for doze optimization oplus feature -->
+    <!-- <oplus-feature name="oplus.software.deviceidle_network_optimization" />
+    <oplus-feature name="oplus.software.power.jobscheduler" />
+    <oplus-feature name="oplus.software.hans_restriction" /> -->
+</oplus-config>
