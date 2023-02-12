@@ -29,7 +29,9 @@ mount -o ro,bind $MODDIR/xml/permissions/oplus_google_cn_gms_features.xml /my_bi
 mount -o ro,bind $MODDIR/xml/permissions/oplusfeature.region_cn.com.oplus.battery.xml /my_bigball/etc/permissions/oplusfeature.region_cn.com.oplus.battery.xml
 
 # Delete region lock config
+mount -o ro,bind $MODDIR/xml/regionlock_config.xml /my_bigball/etc/regionlock_config.xml
 mount -o ro,bind $MODDIR/xml/regionlock_config.xml /my_product/etc/regionlock_config.xml
+mount -o ro,bind $MODDIR/xml/regionlock_config.xml /my_region/etc/regionlock_config.xml
 
 mount -o ro,bind $MODDIR/xml/permissions/EuiccGoogle_grant_permissions_list.xml /my_bigball/etc/permissions/EuiccGoogle_grant_permissions_list.xml
 mount -o ro,bind $MODDIR/xml/EuiccGoogle /my_bigball/priv-app/EuiccGoogle
