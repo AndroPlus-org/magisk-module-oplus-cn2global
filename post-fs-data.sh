@@ -24,14 +24,14 @@ maybe_set_prop gsm.sim.operator.numeric "," "44011,44011"
 maybe_set_prop gsm.sim.operator.iso-country "," "jp,jp"
 
 # Disable CN GMS restriction
-mount -o ro,bind $MODDIR/xml/permissions/oplus.feature.control_cn_gms.xml /my_bigball/etc/permissions/oplus.feature.control_cn_gms.xml
-mount -o ro,bind $MODDIR/xml/permissions/oplus_google_cn_gms_features.xml /my_bigball/etc/permissions/oplus_google_cn_gms_features.xml
-mount -o ro,bind $MODDIR/xml/permissions/oplusfeature.region_cn.com.oplus.battery.xml /my_bigball/etc/permissions/oplusfeature.region_cn.com.oplus.battery.xml
+mount -o ro,bind $MODDIR/xml/permissions/oplus.feature.control_cn_gms.xml /mnt/vendor/my_bigball/etc/permissions/oplus.feature.control_cn_gms.xml
+# mount -o ro,bind $MODDIR/xml/permissions/oplus_google_cn_gms_features.xml /mnt/vendor/my_bigball/etc/permissions/oplus_google_cn_gms_features.xml
+mount -o ro,bind $MODDIR/xml/permissions/oplusfeature.region_cn.com.oplus.battery.xml /mnt/vendor/my_bigball/etc/permissions/oplusfeature.region_cn.com.oplus.battery.xml
 
 # Delete region lock config
-mount -o ro,bind $MODDIR/xml/regionlock_config.xml /my_bigball/etc/regionlock_config.xml
-mount -o ro,bind $MODDIR/xml/regionlock_config.xml /my_product/etc/regionlock_config.xml
-mount -o ro,bind $MODDIR/xml/regionlock_config.xml /my_region/etc/regionlock_config.xml
+mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_bigball/etc/regionlock_config.xml
+mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_product/etc/regionlock_config.xml
+mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_region/etc/regionlock_config.xml
 
-mount -o ro,bind $MODDIR/xml/permissions/EuiccGoogle_grant_permissions_list.xml /my_bigball/etc/permissions/EuiccGoogle_grant_permissions_list.xml
-mount -o ro,bind $MODDIR/xml/EuiccGoogle /my_bigball/priv-app/EuiccGoogle
+# mount -o ro,bind $MODDIR/xml/permissions/EuiccGoogle_grant_permissions_list.xml /my_bigball/etc/permissions/EuiccGoogle_grant_permissions_list.xml
+# mount -o ro,bind $MODDIR/xml/EuiccGoogle /my_bigball/priv-app/EuiccGoogle
