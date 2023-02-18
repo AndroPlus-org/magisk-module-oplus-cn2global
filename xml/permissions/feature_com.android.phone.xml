@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extend_features>
+    <!-- Zhiqiao.Xia@ROM.CommApp.HRO.BugID:543792, 2020/11/21, add for srvcc not show conferenc -->
+    <app_feature name="com.android.phone.srvcc_singleline_not_show_conference" />
+    <!--UserId:742474-->
+    <app_feature name="com.android.phone.exp_uaprofile_url" args="String:https://ua-prof-sg.allawnofs.com/resource/ua-PROF/"/>
+
+    <app_feature name="com.android.phone.simsettings.change_roaming_service_summary" />
+    <app_feature name="com.android.phone.simsettings.domestic_demand_region" args="String:IN" />
+
+    <app_feature name="com.android.phone.number_recognition_12"/>
+    <app_feature name="com.android.phone.oplus_dialer_enable" />
+</extend_features>

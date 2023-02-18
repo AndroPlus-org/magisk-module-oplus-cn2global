@@ -1,0 +1,20 @@
+<!-- This file is used by Exp.  DO NOT MODIFY. -->
+
+<permissions>
+  <feature name="oppo.version.exp" />
+  <!-- Likuan.Ren@Prd6.System.BuildConfig.Config.Feature , 2016/10/18, add for Exp AFW and RuntimePermission -->
+  <feature name="android.software.managed_users" />
+  <feature name="oppo.runtime.permission.alert.support" />
+  <!-- Zequan.Wang@Prd6.System.OppoFeature.ProtectEyes, 2016/12/14, add for protect eyes -->
+  <!--<feature name="oppo.eye.protection.support" />-->
+  <!-- laizhijie@Plf.Comm, 2017/03/7, add for video call -->
+  <!--<feature name="oppo.phone.video.call" />-->
+  <!-- laizhijie@Plf.Comm, 2017/04/25, add for volte support -->
+  <!-- shenghua.qin@EXP.NW.AP.Comm, 2017/05/27, remove for volte support -->
+  <!-- <feature name="oppo.volte.support" /> -->
+  <!-- laizhijie@Plf.Comm, 2017/05/04, add for wlan assistant -->
+  <feature name="oppo.common_center.wlan.assistant" />
+  <feature name="oppo.exp.default.browser" />
+  <!-- Jialin.Pi@Apps.Settings 2018/02/12, feature only use in exp version -->
+  <feature name="android.software.autofill" />
+</permissions>

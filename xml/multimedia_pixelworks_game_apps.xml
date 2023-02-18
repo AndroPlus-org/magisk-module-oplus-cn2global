@@ -12,12 +12,14 @@
     <mConfigPackage  type="267-4-11">com.netease.sky.nearme.gamecenter</mConfigPackage> <!--光·遇-->
     <mConfigPackage  type="267-4-13">com.tencent.tmgp.cf</mConfigPackage> <!--穿越火线-->
     <mConfigPackage  type="267-4-16">com.tencent.lolm</mConfigPackage> <!--英雄联盟-->
+    <mConfigPackage  type="267-4-3">com.epicgames.fortnite</mConfigPackage> <!--Fortnite-->
 
     <!--Config package SR-->
     <mConfigSRPackage  type="273-1-0">com.tencent.tmgp.pubgmhd</mConfigSRPackage> <!--和平精英-->
     <mConfigSRPackage  type="273-1-2">com.tencent.tmgp.wuxia</mConfigSRPackage> <!--天涯明月刀-->
     <mConfigSRPackage  type="273-1-3">com.miHoYo.Yuanshen</mConfigSRPackage> <!--原神-->
     <mConfigSRPackage  type="273-1-3">com.miHoYo.GenshinImpact</mConfigSRPackage> <!--原神-->
+    <mConfigSRPackage  type="273-1-3">com.epicgames.fortnite</mConfigSRPackage> <!--Fortnite-->
     <mConfigSRPackage  type="273-1-9">com.tencent.tmgp.speedmobile</mConfigSRPackage> <!--QQ飞车-->
     <mConfigSRPackage  type="273-1-10">com.tencent.tmgp.sgame</mConfigSRPackage> <!--王者荣耀-->
     <mConfigSRPackage  type="273-1-11">com.netease.sky.nearme.gamecenter</mConfigSRPackage> <!--光·遇-->
@@ -33,6 +35,7 @@
     <mConfigIMVPackage  type="258-10-99-50-99-2-45">com.tencent.tmgp.wuxia</mConfigIMVPackage> <!--天涯明月刀-->
     <mConfigIMVPackage  type="258-10-99-18-99-3-45">com.miHoYo.Yuanshen</mConfigIMVPackage> <!--原神-->
     <mConfigIMVPackage  type="258-10-99-18-99-3-45">com.miHoYo.GenshinImpact</mConfigIMVPackage> <!--原神-->
+    <mConfigIMVPackage  type="258-10-99-18-99-3-45">com.epicgames.fortnite</mConfigIMVPackage> <!--Fortnite-->
     <mConfigIMVPackage  type="258-10-99-18-99-3-45">com.miHoYo.ys.bilibili</mConfigIMVPackage> <!--原神-->
     <mConfigIMVPackage  type="258-10-99-50-99-4-45">com.miHoYo.bh3.nearme.gamecenter</mConfigIMVPackage> <!--崩坏3-->
     <mConfigIMVPackage  type="258-10-99-50-99-5-45">com.tencent.tmgp.cod</mConfigIMVPackage> <!--使命召唤手游-->
