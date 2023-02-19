@@ -1,7 +1,7 @@
 ## Patch for OPPO / OnePlus / realme ColorOS China
 
 This is a Magisk module to enables Google Location history and Nearby share on the Chinese version of ColorOS.  
-This module also disables region lock and enable Wi-Fi 7.
+This also enables MEMC frame insertion (120fps) on global version of Genshin Impact.  
 
 Download magisk-module-oplus-cn2global.zip, install this module from the Modules tab of the Magisk app and restart.
 
@@ -14,7 +14,9 @@ In case of commercial use, 50% of the profit will be collected.
 
 ## 日本語説明
 OPPO / OnePlus / realme の中国版 ColorOS で Google ロケーション履歴やニアバイシェアを有効化する Magisk モジュールです。  
-リージョンロックの無効化や Wi-Fi 7 の有効化も行います。
+グローバル版原神にて MEMC フレーム補間 (120fps プレイ) や SDR2HDR の有効化も行います。  
+
+未テストですが Wi-Fi 7 の有効化も行います。
 
 magisk-module-oplus-cn2global.zip をダウンロードして Magisk アプリのモジュールタブからこのモジュールをインストール・再起動してください。
 
