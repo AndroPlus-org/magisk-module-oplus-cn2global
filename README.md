@@ -16,6 +16,9 @@ In case of commercial use, 50% of the profit will be collected.
 OPPO / OnePlus / realme の中国版 ColorOS で Google ロケーション履歴やニアバイシェアを有効化する Magisk モジュールです。  
 グローバル版原神にて MEMC フレーム補間 (120fps プレイ) や SDR2HDR の有効化も行います。  
 
+v06 より YouTube や Amazon プライムビデオでもフレーム補間を有効化するようにしました。  
+Game Center アプリでゲームとして登録したあと、再生していない状態でフレーム補間を有効化してください。  
+
 未テストですが Wi-Fi 7 の有効化も行います。
 
 magisk-module-oplus-cn2global.zip をダウンロードして Magisk アプリのモジュールタブからこのモジュールをインストール・再起動してください。
