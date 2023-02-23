@@ -37,6 +37,12 @@ mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_region/etc/reg
 
 # Enable MEMC for Genshin
 mount -o ro,bind $MODDIR/xml/multimedia_pixelworks_game_apps.xml /my_product/vendor/etc/multimedia_pixelworks_game_apps.xml
+#mount -o ro,bind $MODDIR/xml/permissions/oplus.product.feature_video_motionf.xml /my_product/etc/permissions/oplus.product.feature_video_motionf.xml
+
+DISP_XML="multimedia_display_feature_config.xml"
+if [ -e "${MODDIR}/xml/$DISP_XML" ]; then
+    mount -o ro,bind ${MODDIR}/xml/$DISP_XML /my_product/vendor/etc/$DISP_XML
+fi
 
 # Google Lens
 mount -o ro,bind $MODDIR/xml/permissions/oplus_google_lens_config.xml /mnt/vendor/my_bigball/etc/permissions/oplus_google_lens_config.xml
@@ -63,8 +69,5 @@ mount -o ro,bind $MODDIR/xml/overlay/OplusGmsConfigOverlayCommon.apk /my_heytap/
 if [ -d ${MODDIR}/xml/overlay/GmsConfigOverlayComms.apk ];then
 mount -o ro,bind $MODDIR/xml/overlay/GmsConfigOverlayComms.apk /my_heytap/overlay/GmsConfigOverlayComms.apk
 fi
-
-#mount -o ro,bind $MODDIR/xml/permissions/EuiccGoogle_grant_permissions_list.xml /my_bigball/etc/permissions/EuiccGoogle_grant_permissions_list.xml
-#mount -o ro,bind $MODDIR/xml/EuiccGoogle /my_bigball/priv-app/EuiccGoogle
 
 resetprop persist.sys.oplus.radio.globalregionlock 0,0

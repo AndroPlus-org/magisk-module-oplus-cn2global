@@ -14,6 +14,13 @@ fi
 
 rm -rf ${MODPATH}/cn2g-optional
 
+DISP_XML="/my_product/vendor/etc/multimedia_display_feature_config.xml"
+#if [ -e "$DISP_XML" ]; then
+#    cp -a "$DISP_XML" ${MODPATH}/xml/multimedia_display_feature_config.xml
+#    sed -i 's@\<!\[CDATA\[@@g' ${MODPATH}/xml/multimedia_display_feature_config.xml
+#    sed -i 's@\]\]\>@@g' ${MODPATH}/xml/multimedia_display_feature_config.xml
+#fi
+
 # Taken from unlock-cn-gms
 # Credit: Howard20181, yujincheng08 https://github.com/yujincheng08/unlock-cn-gms
 PERMISSIONS_PATH=/etc/permissions

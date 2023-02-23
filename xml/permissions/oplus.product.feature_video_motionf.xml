@@ -1,0 +1,6 @@
+<permissions>
+    <!-- caibo@MULTIMEDIA.MEDIASERVER.RECORDER, 2022/1/13, Add for osie and sr feature start -->
+    <feature name="oplus.software.display.osie_support"/>
+    <feature name="oplus.software.video.osie_support"/>
+    <feature name="oplus.software.display.pixelworks_enable"/>
+</permissions>

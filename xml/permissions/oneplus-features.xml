@@ -2,4 +2,5 @@
   <oplus-feature name="OP_FEATURE_SKU_GLOBAL" />
   <oplus-feature name="oplus.software.sku_oplus" />
   <oplus-feature name="oplus.software.antiroot_disabled" />
+  <oplus-feature name="oplus.software.display.pixelworks_enable" />
 </oplus-config>
