@@ -4,19 +4,31 @@ persist.dbg.vt_avail_ovr=1
 persist.dbg.allow_ims_off=1
 persist.dbg.wfc_avail_ovr=1
 
-# Maybe disable region check?
-persist.sys.radio.global_regionlock.allcheck=false
+# Disable realme region netlock
 ro.oplus.radio.region_netlock_enable=false
 ro.oplus.radio.region_netlock_disable=true
+ro.oplus.radio.region_netlock_country=CN
+o.oplus.radio.region_netlockflag=0
+
+# Disable OnePlus global_regionlock
+ro.oplus.radio.global_regionlock.log=true
 ro.oplus.radio.global_regionlock.enabled=false
-ro.oplus.radio.global_regionlockflag=0
+persist.sys.oplus.radio.haslimited=false
 ro.oplus.radio.checkservice=false
-ro.oplus.radio.region_netlock_country=JP
-persist.sys.oplus.radio.globalregionlock=0,0
-persist.sys.oplus.region=NA
-persist.sys.rpmb.lock=JP
-ro.vendor.oplus.regionmark=JP
-# ro.oplus.connectivity.oversea=true
+ro.oplus.radio.global_regionlockflag=0
+persist.sys.oplus.bnoticetimes=0
+persist.sys.oplus.pnoticetimes=1
+gsm.sim.oplus.radio.fnoticetime=-2147483648
+
+# Example props in restricted status
+# persist.sys.oplus.bnoticetimes=6
+# persist.sys.oplus.pnoticetimes=4
+# persist.sys.oplus.radio.haslimited=true
+# persist.sys.oplus.radio.rule_retry_interval=3000
+# persist.sys.radio.global_regionlock.allcheck=true
+# ro.oplus.radio.checkservice=true
+# ro.oplus.radio.global_regionlock.enabled=true
+# ro.oplus.radio.global_regionlockflag=6
 
 # Maybe enable MEMC? US=0x400080 CN=0x407f0780
 # persist.vendor.display.pxlw.iris_feature = 0x407f0780
@@ -27,4 +39,3 @@ ro.oplus.wifi.11be_disabled=0
 
 ro.opa.eligible_device=true
 ro.opa.device_model_id=ga-oplus-skill-os121-211011
-ro.com.google.gmsversion=13_202211

@@ -35,8 +35,17 @@ mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_bigball/etc/re
 mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_product/etc/regionlock_config.xml
 mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_region/etc/regionlock_config.xml
 
+mount -o ro,bind $MODDIR/xml/netcode_config.xml /system/system_ext/etc/netcode_config.xml
+mount -o ro,bind $MODDIR/xml/netcode_version.xml /system/system_ext/etc/netcode_version.xml
+
+resetprop -p persist.sys.oplus.radio.haslimited false
+resetprop ro.oplus.radio.checkservice false
+resetprop ro.oplus.radio.global_regionlock.enabled false
+resetprop -p persist.sys.radio.global_regionlock.allcheck false
+
 # Enable MEMC for Genshin
 mount -o ro,bind $MODDIR/xml/multimedia_pixelworks_game_apps.xml /my_product/vendor/etc/multimedia_pixelworks_game_apps.xml
+mount -o ro,bind $MODDIR/xml/multimedia_pixelworks_apps.xml /my_product/vendor/etc/multimedia_pixelworks_apps.xml
 #mount -o ro,bind $MODDIR/xml/permissions/oplus.product.feature_video_motionf.xml /my_product/etc/permissions/oplus.product.feature_video_motionf.xml
 
 DISP_XML="multimedia_display_feature_config.xml"
