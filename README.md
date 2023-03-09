@@ -5,6 +5,10 @@ This also enables MEMC frame insertion (120fps) on global version of Genshin Imp
 
 Download magisk-module-oplus-cn2global.zip, install this module from the Modules tab of the Magisk app and restart.
 
+### How to enable game functions
+Install the Xposed module [LuckyTool](https://github.com/Xposed-Modules-Repo/com.luckyzyx.luckytool) and turn on Game Assistant -> Enable Developer Page.   
+Open [Game Assistant Developer Page] at the bottom of [System Quick Entry] in the leftmost menu of LuckyTool, then turn on [游戏插帧] and [超级分辨率] and press the green button at the bottom.
+
 ## Prohibitions
 
 For reasons of support, etc., commercial use of this module is prohibited. (except in cases of special permission).  
@@ -22,6 +26,10 @@ Game Center アプリでゲームとして登録したあと、再生してい�
 未テストですが Wi-Fi 7 の有効化も行います。
 
 magisk-module-oplus-cn2global.zip をダウンロードして Magisk アプリのモジュールタブからこのモジュールをインストール・再起動してください。
+
+### ゲーム機能の有効化方法
+Xposedモジュールの[LuckyTool](https://github.com/Xposed-Modules-Repo/com.luckyzyx.luckytool) をインストールして、Game Assistant→開発者ページを有効化をオンにしてください。  
+LuckyToolの左端のメニューにある「システムクイックエントリー」の一番下にある「ゲームアシスタントの開発者ページ」を開いて、「游戏插帧」「超级分辨率」をオンにして下にある緑のボタンを押してください。
 
 ## 禁止事項
 
