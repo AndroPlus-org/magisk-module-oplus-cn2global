@@ -44,7 +44,10 @@ resetprop ro.oplus.radio.global_regionlock.enabled false
 resetprop -p persist.sys.radio.global_regionlock.allcheck false
 
 # Enable MEMC for Genshin
-mount -o ro,bind $MODDIR/xml/multimedia_pixelworks_game_apps.xml /my_product/vendor/etc/multimedia_pixelworks_game_apps.xml
+MEMC_XML="multimedia_pixelworks_game_apps.xml"
+if [ -e "${MODDIR}/xml/${MEMC_XML}" ]; then
+    mount -o ro,bind ${MODDIR}/xml/${MEMC_XML} /my_product/vendor/etc/${MEMC_XML}
+fi
 mount -o ro,bind $MODDIR/xml/multimedia_pixelworks_apps.xml /my_product/vendor/etc/multimedia_pixelworks_apps.xml
 #mount -o ro,bind $MODDIR/xml/permissions/oplus.product.feature_video_motionf.xml /my_product/etc/permissions/oplus.product.feature_video_motionf.xml
 
