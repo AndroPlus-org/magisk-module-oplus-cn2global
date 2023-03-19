@@ -56,6 +56,14 @@ if [ -e "${MODDIR}/xml/$DISP_XML" ]; then
     mount -o ro,bind ${MODDIR}/xml/$DISP_XML /my_product/vendor/etc/$DISP_XML
 fi
 
+# Unlock engineermode
+ENG_XML="engineer_order_list.xml"
+if [ -e "/system/system_ext/etc/engineermode/${ENG_XML}" ]; then
+    cp -a /system/system_ext/etc/engineermode/${ENG_XML} ${MODDIR}/xml/${ENG_XML}
+    sed -i 's@level="[0-9]"@level="1"@g' ${MODDIR}/xml/${ENG_XML}
+    mount -o ro,bind ${MODDIR}/xml/${ENG_XML} /system/system_ext/etc/engineermode/${ENG_XML}
+fi
+
 # Google Lens
 mount -o ro,bind $MODDIR/xml/permissions/oplus_google_lens_config.xml /mnt/vendor/my_bigball/etc/permissions/oplus_google_lens_config.xml
 
