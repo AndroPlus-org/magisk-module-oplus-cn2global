@@ -35,8 +35,8 @@ mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_bigball/etc/re
 mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_product/etc/regionlock_config.xml
 mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_region/etc/regionlock_config.xml
 
-mount -o ro,bind $MODDIR/xml/netcode_config.xml /system/system_ext/etc/netcode_config.xml
-mount -o ro,bind $MODDIR/xml/netcode_version.xml /system/system_ext/etc/netcode_version.xml
+# mount -o ro,bind $MODDIR/xml/netcode_config.xml /system/system_ext/etc/netcode_config.xml
+# mount -o ro,bind $MODDIR/xml/netcode_version.xml /system/system_ext/etc/netcode_version.xml
 
 resetprop -p persist.sys.oplus.radio.haslimited false
 resetprop ro.oplus.radio.checkservice false
