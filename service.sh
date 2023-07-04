@@ -7,8 +7,9 @@
 MODDIR=${0%/*}
 # This script will be executed in post-fs-data mode
 
+setprop persist.sys.oplus.radio.globalregionlock 0,0
 setprop persist.sys.oplus.radio.haslimited false
 setprop ro.oplus.radio.checkservice false
-setprop persist.sys.oplus.bnoticetimes 0
-setprop persist.sys.oplus.pnoticetimes 1
-setprop gsm.sim.oplus.radio.fnoticetime -2147483648
+setprop persist.sys.oplus.bnoticetimes -200000
+setprop persist.sys.oplus.pnoticetimes -200000
+setprop gsm.sim.oplus.radio.fnoticetime -200000
