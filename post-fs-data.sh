@@ -38,11 +38,6 @@ mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_region/etc/reg
 # mount -o ro,bind $MODDIR/xml/netcode_config.xml /system/system_ext/etc/netcode_config.xml
 # mount -o ro,bind $MODDIR/xml/netcode_version.xml /system/system_ext/etc/netcode_version.xml
 
-resetprop -p persist.sys.oplus.radio.haslimited false
-resetprop ro.oplus.radio.checkservice false
-resetprop ro.oplus.radio.global_regionlock.enabled false
-resetprop -p persist.sys.radio.global_regionlock.allcheck false
-
 # Enable MEMC for Genshin
 MEMC_XML="multimedia_pixelworks_game_apps.xml"
 if [ -e "${MODDIR}/xml/${MEMC_XML}" ]; then
@@ -90,17 +85,11 @@ if [ -d ${MODDIR}/xml/overlay/GmsConfigOverlayComms.apk ];then
 mount -o ro,bind $MODDIR/xml/overlay/GmsConfigOverlayComms.apk /my_heytap/overlay/GmsConfigOverlayComms.apk
 fi
 
-(
-while true
-do
-    setprop persist.sys.oplus.radio.globalregionlock 0,0
-	setprop persist.sys.oplus.radio.haslimited false
-	setprop ro.oplus.radio.checkservice false
-	setprop persist.sys.oplus.bnoticetimes -200000
-	setprop persist.sys.oplus.pnoticetimes -200000
-	setprop gsm.sim.oplus.radio.fnoticetime -200000
-
-    # make this script sleep for 6 hours
-    sleep 6h
-done
-) &
+resetprop -n ro.oplus.radio.global_regionlock.enabled false
+resetprop -n persist.sys.radio.global_regionlock.allcheck false
+resetprop -n persist.sys.oplus.radio.globalregionlock 0,0
+resetprop -n persist.sys.oplus.radio.haslimited false
+resetprop -n ro.oplus.radio.checkservice false
+resetprop -n persist.sys.oplus.bnoticetimes -200000
+resetprop -n persist.sys.oplus.pnoticetimes -200000
+resetprop -n gsm.sim.oplus.radio.fnoticetime -200000
