@@ -10,6 +10,8 @@ MODDIR=${0%/*}
 #resetprop ro.boot.hwc GLOBAL
 #resetprop ro.boot.hwcountry GLOBAL
 
+BRAND=$(getprop ro.com.google.clientidbase)
+
 maybe_set_prop() {
     local prop="$1"
     local contains="$2"
@@ -43,8 +45,9 @@ MEMC_XML="multimedia_pixelworks_game_apps.xml"
 if [ -e "${MODDIR}/xml/${MEMC_XML}" ]; then
     mount -o ro,bind ${MODDIR}/xml/${MEMC_XML} /my_product/vendor/etc/${MEMC_XML}
 fi
-mount -o ro,bind $MODDIR/xml/multimedia_pixelworks_apps.xml /my_product/vendor/etc/multimedia_pixelworks_apps.xml
-#mount -o ro,bind $MODDIR/xml/permissions/oplus.product.feature_video_motionf.xml /my_product/etc/permissions/oplus.product.feature_video_motionf.xml
+if [ "${BRAND}" -eq "android-oneplus" ]; then
+    mount -o ro,bind $MODDIR/xml/multimedia_pixelworks_apps.xml /my_product/vendor/etc/multimedia_pixelworks_apps.xml
+fi
 
 DISP_XML="multimedia_display_feature_config.xml"
 if [ -e "${MODDIR}/xml/$DISP_XML" ]; then
