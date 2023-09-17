@@ -27,7 +27,6 @@ maybe_set_prop gsm.sim.operator.iso-country "," "jp,jp"
 
 # Disable CN GMS restriction
 mount -o ro,bind $MODDIR/xml/permissions/oplus.feature.control_cn_gms.xml /mnt/vendor/my_bigball/etc/permissions/oplus.feature.control_cn_gms.xml
-# mount -o ro,bind $MODDIR/xml/permissions/oplus_google_cn_gms_features.xml /mnt/vendor/my_bigball/etc/permissions/oplus_google_cn_gms_features.xml
 mount -o ro,bind $MODDIR/xml/permissions/oplusfeature.region_cn.com.oplus.battery.xml /mnt/vendor/my_bigball/etc/permissions/oplusfeature.region_cn.com.oplus.battery.xml
 
 mount -o ro,bind $MODDIR/xml/permissions/feature_com.android.phone.xml /mnt/vendor/my_region/etc/extension/feature_com.android.phone.xml
@@ -40,18 +39,9 @@ mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_region/etc/reg
 # mount -o ro,bind $MODDIR/xml/netcode_config.xml /system/system_ext/etc/netcode_config.xml
 # mount -o ro,bind $MODDIR/xml/netcode_version.xml /system/system_ext/etc/netcode_version.xml
 
-# Enable MEMC for Genshin
-MEMC_XML="multimedia_pixelworks_game_apps.xml"
-if [ -e "${MODDIR}/xml/${MEMC_XML}" ]; then
-    mount -o ro,bind ${MODDIR}/xml/${MEMC_XML} /my_product/vendor/etc/${MEMC_XML}
-fi
-if [ "${BRAND}" -eq "android-oneplus" ]; then
-    mount -o ro,bind $MODDIR/xml/multimedia_pixelworks_apps.xml /my_product/vendor/etc/multimedia_pixelworks_apps.xml
-fi
-
-DISP_XML="multimedia_display_feature_config.xml"
-if [ -e "${MODDIR}/xml/$DISP_XML" ]; then
-    mount -o ro,bind ${MODDIR}/xml/$DISP_XML /my_product/vendor/etc/$DISP_XML
+# Enable MEMC
+if [ -e "${MODDIR}/xml/my_product/etc" ]; then
+    mount -o ro,bind ${MODDIR}/xml/my_product/etc/ /my_product/vendor/etc
 fi
 
 # Unlock engineermode
@@ -66,26 +56,31 @@ fi
 mount -o ro,bind $MODDIR/xml/permissions/oplus_google_lens_config.xml /mnt/vendor/my_bigball/etc/permissions/oplus_google_lens_config.xml
 
 # Enable global features
-mount -o ro,bind $MODDIR/xml/permissions/com.oppo.features_expCommon.xml /my_product/etc/permissions/com.oppo.features_expCommon.xml
-mount -o ro,bind $MODDIR/xml/permissions/oneplus-features.xml /system/system_ext/etc/permissions/oneplus-features.xml
+if [ -e "${MODDIR}/xml/com.oppo.features_allnet_android.xml" ]; then
+    mount -o ro,bind ${MODDIR}/xml/com.oppo.features_allnet_android.xml /my_product/etc/permissions/com.oppo.features_allnet_android.xml
+fi
 
-mount -o ro,bind $MODDIR/xml/permissions/privapp-permissions-google-comms-suite.xml /my_heytap/etc/permissions/privapp-permissions-google-comms-suite.xml
-mount -o ro,bind $MODDIR/xml/permissions/privapp-permissions-google-product.xml /my_heytap/etc/permissions/privapp-permissions-google-product.xml
-mount -o ro,bind $MODDIR/xml/permissions/privapp-permissions-google-system.xml /my_heytap/etc/permissions/privapp-permissions-google-system.xml
-mount -o ro,bind $MODDIR/xml/permissions/privapp-permissions-google-system-ext.xml /my_heytap/etc/permissions/privapp-permissions-google-system-ext.xml
+if [ -e "${MODDIR}/xml/my_heytap/permissions" ]; then
+    mount -o ro,bind ${MODDIR}/xml/my_heytap/permissions/ /my_heytap/etc/permissions
+fi
 
-mount -o ro,bind $MODDIR/xml/GoogleServicesFramework /my_heytap/priv-app/GoogleServicesFramework
-mount -o ro,bind $MODDIR/xml/GoogleLocationHistory /my_heytap/app/GoogleLocationHistory
+if [ -e "${MODDIR}/xml/my_heytap/app" ]; then
+    mount -o ro,bind ${MODDIR}/xml/my_heytap/app/ /my_heytap/app
+fi
+
+if [ -e "${MODDIR}/xml/my_heytap/priv-app" ]; then
+    mount -o ro,bind ${MODDIR}/xml/my_heytap/priv-app/ /my_heytap/priv-app
+fi
 
 mount -o ro,bind $MODDIR/xml/oplus_carrier_config.xml /my_region/etc/oplus_carrier_config.xml
 
-mount -o ro,bind $MODDIR/xml/overlay/GmsConfigOverlayASI.apk /my_heytap/overlay/GmsConfigOverlayASI.apk
-mount -o ro,bind $MODDIR/xml/overlay/GmsConfigOverlayCommonExport.apk /my_heytap/overlay/GmsConfigOverlayCommonExport.apk
-mount -o ro,bind $MODDIR/xml/overlay/OplusGmsConfigOverlayCommon.apk /my_heytap/overlay/OplusGmsConfigOverlayCommon.apk
-
 # Google Dialer
 if [ -d ${MODDIR}/xml/overlay/GmsConfigOverlayComms.apk ];then
-mount -o ro,bind $MODDIR/xml/overlay/GmsConfigOverlayComms.apk /my_heytap/overlay/GmsConfigOverlayComms.apk
+    cp -a $MODDIR/xml/overlay/GmsConfigOverlayComms.apk $MODDIR/my_heytap/overlay/GmsConfigOverlayComms.apk
+fi
+
+if [ -e "${MODDIR}/xml/my_heytap/overlay" ]; then
+    mount -o ro,bind ${MODDIR}/xml/my_heytap/overlay/ /my_heytap/overlay
 fi
 
 resetprop -n ro.oplus.radio.global_regionlock.enabled false

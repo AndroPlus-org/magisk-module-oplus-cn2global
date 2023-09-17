@@ -2,8 +2,4 @@
   <oplus-feature name="OP_FEATURE_SKU_GLOBAL" />
   <oplus-feature name="oplus.software.sku_oplus" />
   <oplus-feature name="oplus.software.antiroot_disabled" />
-  <oplus-feature name="oplus.software.display.pixelworks_enable"/>
-  <oplus-feature name="oplus.software.display.iris_enable"/>
-  <oplus-feature name="oplus.software.display.memc_enable"/>
-  <oplus-feature name="oplus.software.display.qcom_pixelworks_x5_enable"/>
 </oplus-config>
