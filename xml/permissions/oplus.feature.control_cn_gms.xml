@@ -1,4 +1,24 @@
 <oplus-config>
     <!-- xieliangzhuo@ANDROID.GMS, 2022/1/11, Add for disable cn gms -->
     <!-- <oplus-feature name="oplus.software.disable_cn_gms" /> -->
+
+    <!--
+    <oplus-feature name="oplus.software.app_resolution_switch" />
+    <oplus-feature name="oplus.software.app_resolution_auto" />
+    <oplus-feature name="oplus.software.display.resolution_switch_support" />
+    <oplus-feature name="oplus.software.display.wm_size_resolution_switch_support" />
+    <oplus-feature name="oplus.software.display.1.5k_resolution_switch_support" />
+    <oplus-feature name="oplus.software.display.resolution_switch_disableauto_support" />
+
+    <oplus-feature name="oplus.software.display.refreshrate_default_override" />
+    <oplus-feature name="oplus.software.dynamic_report_rate" />
+    <oplus-feature name="oplus.software.joystick.game_joystick_support"/>
+    <oplus-feature name="oplus.software.display.refreshrate_default_smart"/>
+
+    <oplus-feature name="oplus.software.display.pixelworks_enable"/>
+    <oplus-feature name="oplus.software.display.iris_enable"/>
+    <oplus-feature name="oplus.software.display.memc_enable"/>
+    <oplus-feature name="oplus.software.display.game.support.extreme_insert"/>
+    <oplus-feature name="oplus.software.display.enhance_brightness_with_uidimming" />
+    -->
 </oplus-config>
