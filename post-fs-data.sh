@@ -91,3 +91,5 @@ resetprop -n ro.oplus.radio.checkservice false
 resetprop -n persist.sys.oplus.bnoticetimes -200000
 resetprop -n persist.sys.oplus.pnoticetimes -200000
 resetprop -n gsm.sim.oplus.radio.fnoticetime -200000
+resetprop -n ro.boot.wificountrycode US
+iw reg set US

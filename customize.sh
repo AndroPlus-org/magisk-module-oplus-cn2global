@@ -97,3 +97,8 @@ if [ -d /my_heytap/priv-app ]; then
     cp -ar /my_heytap/priv-app/. ${MODPATH}/xml/my_heytap/priv-app/
     cp -a ${MODPATH}/xml/GoogleServicesFramework ${MODPATH}/xml/my_heytap/priv-app/
 fi
+
+mkdir -p ${MODPATH}/system/bin/ 
+cp ${MODPATH}/iw ${MODPATH}/system/bin/
+chmod +x ${MODPATH}/system/bin/iw
+ 
