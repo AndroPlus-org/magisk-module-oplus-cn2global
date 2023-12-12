@@ -99,4 +99,3 @@ if [ -d /my_heytap/priv-app ]; then
 fi
 
 chmod +x ${MODPATH}/system/bin/iw
- 

@@ -7,7 +7,7 @@ persist.dbg.wfc_avail_ovr=1
 # Disable realme region netlock
 ro.oplus.radio.region_netlock_enable=false
 ro.oplus.radio.region_netlock_disable=true
-ro.oplus.radio.region_netlock_country=CN
+ro.oplus.radio.region_netlock_country=US
 o.oplus.radio.region_netlockflag=0
 
 # Disable OnePlus global_regionlock
