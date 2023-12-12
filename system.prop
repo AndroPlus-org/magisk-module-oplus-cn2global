@@ -40,8 +40,8 @@ ro.oplus.wifi.11be_disabled=0
 ro.opa.eligible_device=true
 ro.opa.device_model_id=ga-oplus-skill-os121-211011
 
-persist.sys.oplus.region US
-ro.oplus.pipeline.region US
-ro.oplus.radio.region_netlock_country US
+persist.sys.oplus.region=US
+ro.oplus.pipeline.region=US
+ro.oplus.radio.region_netlock_country=US
 ro.product.locale=en-US
 ro.vendor.oplus.regionmark=US
