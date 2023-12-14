@@ -1,5 +1,0 @@
-service wifi_reg /system/bin/wifi_reg
-    class main
-    user wifi
-    group wifi net_raw net_admin
-    capabilities NET_RAW NET_ADMIN
