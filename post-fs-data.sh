@@ -11,3 +11,4 @@ resetprop -n "SKU:US HWC:US"
 resetprop -n ro.boot.hwc US
 resetprop -n ro.boot.wificountrycode US
 iw reg set US
+wifi_reg &
