@@ -1,6 +1,6 @@
-id=oplus-cn-conv
-name=Patch for OPLUS China
-version=v12
-versionCode=12
-author=AndroPlus
-description=OPLUS China to Global
+id=wifi-countrycode
+name=wifi country code
+version=v1.0
+versionCode=1.0
+author=binarycraft007
+description=set wifi country code
