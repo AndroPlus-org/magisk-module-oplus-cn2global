@@ -6,6 +6,3 @@
 # if Magisk change its mount point in the future
 MODDIR=${0%/*}
 # This script will be executed in post-fs-data mode
-
-resetprop -n ro.boot.wificountrycode US
-iw reg set US
