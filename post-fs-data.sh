@@ -12,37 +12,11 @@ MODDIR=${0%/*}
 
 BRAND=$(getprop ro.com.google.clientidbase)
 
-maybe_set_prop() {
-    local prop="$1"
-    local contains="$2"
-    local value="$3"
-
-    if [[ "$(getprop "$prop")" == *"$contains"* ]]; then
-        resetprop "$prop" "$value"
-    fi
-}
-
-maybe_set_prop gsm.sim.operator.numeric "," "44011,44011"
-maybe_set_prop gsm.sim.operator.iso-country "," "jp,jp"
-
 # Disable CN GMS restriction
 mount -o ro,bind $MODDIR/xml/permissions/oplus.feature.control_cn_gms.xml /mnt/vendor/my_bigball/etc/permissions/oplus.feature.control_cn_gms.xml
 mount -o ro,bind $MODDIR/xml/permissions/oplusfeature.region_cn.com.oplus.battery.xml /mnt/vendor/my_bigball/etc/permissions/oplusfeature.region_cn.com.oplus.battery.xml
 
-mount -o ro,bind $MODDIR/xml/permissions/feature_com.android.phone.xml /mnt/vendor/my_region/etc/extension/feature_com.android.phone.xml
-
-# Delete region lock config
-mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_bigball/etc/regionlock_config.xml
-mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_product/etc/regionlock_config.xml
-mount -o ro,bind $MODDIR/xml/regionlock_config.xml /mnt/vendor/my_region/etc/regionlock_config.xml
-
-# mount -o ro,bind $MODDIR/xml/netcode_config.xml /system/system_ext/etc/netcode_config.xml
-# mount -o ro,bind $MODDIR/xml/netcode_version.xml /system/system_ext/etc/netcode_version.xml
-
-# Enable MEMC
-if [ -e "${MODDIR}/xml/my_product/etc" ]; then
-    mount -o ro,bind ${MODDIR}/xml/my_product/etc/ /my_product/vendor/etc
-fi
+#mount -o ro,bind $MODDIR/xml/permissions/feature_com.android.phone.xml /mnt/vendor/my_region/etc/extension/feature_com.android.phone.xml
 
 # Unlock engineermode
 ENG_XML="engineer_order_list.xml"
@@ -82,12 +56,3 @@ fi
 if [ -e "${MODDIR}/xml/my_heytap/overlay" ]; then
     mount -o ro,bind ${MODDIR}/xml/my_heytap/overlay/ /my_heytap/overlay
 fi
-
-resetprop -n ro.oplus.radio.global_regionlock.enabled false
-resetprop -n persist.sys.radio.global_regionlock.allcheck false
-resetprop -n persist.sys.oplus.radio.globalregionlock 0,0
-resetprop -n persist.sys.oplus.radio.haslimited false
-resetprop -n ro.oplus.radio.checkservice false
-resetprop -n persist.sys.oplus.bnoticetimes -200000
-resetprop -n persist.sys.oplus.pnoticetimes -200000
-resetprop -n gsm.sim.oplus.radio.fnoticetime -200000

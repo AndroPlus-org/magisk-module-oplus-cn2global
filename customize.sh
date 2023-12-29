@@ -57,16 +57,6 @@ fi
 
 rm -rf ${MODPATH}/cn2g-optional
 
-MEMC_XML="multimedia_pixelworks_game_apps.xml"
-MEMC_VIDEO_XML="multimedia_pixelworks_apps.xml"
-if [ -d /my_product/vendor/etc ]; then
-    cp -ar /my_product/vendor/etc/. ${MODPATH}/xml/my_product/etc/
-    if [ -e /my_product/vendor/etc/${MEMC_XML} ]; then
-        sed -i 's@</filter-conf>@<mConfigEDRPackage  type="267-5-155-25">com.HoYoverse.hkrpgoversea</mConfigEDRPackage>\n<mConfigMEMCSRPackage  type="4">com.HoYoverse.hkrpgoversea</mConfigMEMCSRPackage>\n<mConfigIMVPackage  type="258-10-99-50-99-155-45">com.HoYoverse.hkrpgoversea</mConfigIMVPackage>\n<mConfigPackage  type="267-4-3">com.google.android.youtube</mConfigPackage>\n<mConfigSRPackage  type="273-1-3">com.google.android.youtube</mConfigSRPackage>\n<mConfigIMVPackage  type="258-10-99-18-99-3-45">com.google.android.youtube</mConfigIMVPackage>\n<mConfigIMVPackage  type="258-10-99-18-99-3-45">com.amazon.avod.thirdpartyclient</mConfigIMVPackage>\n</filter-conf>@g' ${MODPATH}/xml/my_product/etc/${MEMC_XML}
-        # <mConfigPackage  type="267-4-3">com.miHoYo.GenshinImpact</mConfigPackage>\n<mConfigSRPackage  type="273-1-3">com.miHoYo.GenshinImpact</mConfigSRPackage>\n<mConfigIMVPackage  type="258-10-99-18-99-3-45">com.miHoYo.GenshinImpact</mConfigIMVPackage>\n
-    fi
-fi
-
 FEAT_XML="com.oppo.features_allnet_android.xml"
 if [ -e /my_product/etc/permissions/${FEAT_XML} ]; then
     cp -a /my_product/etc/permissions/${FEAT_XML} ${MODPATH}/xml/${FEAT_XML}
