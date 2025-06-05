@@ -3,38 +3,60 @@ REPLACE="
 
 # Taken from unlock-cn-gms
 # Credit: Howard20181, yujincheng08 https://github.com/yujincheng08/unlock-cn-gms
-PERMISSIONS_PATH=/etc/permissions
-SYSTEM_PATH=/system
-SYSTEM_EXT_PATH=$SYSTEM_PATH/system_ext
-PRODUCT_PATH=$SYSTEM_PATH/product
-VENDOR_PATH=$SYSTEM_PATH/vendor
-OPLUS_BIGBALL_PATH=/my_bigball
-OPLUS_BIGBALL_VENDOR_PATH=/mnt/vendor$OPLUS_BIGBALL_PATH
-ROOT_LIST=""$SYSTEM_PATH$PERMISSIONS_PATH" "$PRODUCT_PATH$PERMISSIONS_PATH" "$VENDOR_PATH$PERMISSIONS_PATH" "$SYSTEM_EXT_PATH$PERMISSIONS_PATH" "$OPLUS_BIGBALL_PATH$PERMISSIONS_PATH" "$OPLUS_BIGBALL_VENDOR_PATH$PERMISSIONS_PATH""
-FILE_LIST="services.cn.google.xml cn.google.services.xml oplus_google_cn_gms_features.xml"
-for ROOT in $ROOT_LIST; do
-    for FILE in $FILE_LIST; do
-        if [ -f "$ROOT/$FILE" ]; then
-            PERMISSION_PATH="$MODPATH$ROOT"
-            FILE_NAME=$FILE
-            ui_print "- PATH $ROOT/$FILE_NAME"
-            mkdir -p "$PERMISSION_PATH"
-            cat >"$PERMISSION_PATH/$FILE_NAME" <<EOF
-<?xml version="1.0" encoding="utf-8"?>
-<!-- This is the standard set of features for devices that support the CN GMSCore. -->
-EOF
-            [ "$ROOT" = "$OPLUS_BIGBALL_PATH$PERMISSIONS_PATH" ] || [ "$ROOT" = "$OPLUS_BIGBALL_VENDOR_PATH$PERMISSIONS_PATH" ]  && {
-                if [ ! -f "$MODPATH/post-fs-data.sh" ]; then
-                    cat >"$MODPATH/post-fs-data.sh" <<EOF
-#!/system/bin/sh
-MODDIR=\${0%/*}
-EOF
-                fi
-                echo "mount -o ro,bind \$MODDIR$ROOT/$FILE_NAME $ROOT/$FILE_NAME" >> "$MODPATH/post-fs-data.sh"
-            }
+# Function to find the first available XML permission file
+find_origin() {
+    for file in \
+        /system/etc/permissions/services.cn.google.xml \
+        /system/etc/permissions/com.oppo.features.cn_google.xml \
+        /vendor/etc/permissions/services.cn.google.xml \
+        /product/etc/permissions/services.cn.google.xml \
+        /product/etc/permissions/cn.google.services.xml \
+        /my_bigball/etc/permissions/oplus_google_cn_gms_features.xml \
+        /my_product/etc/permissions/oplus_google_cn_gms_features.xml \
+        /my_heytap/etc/permissions/my_heytap_cn_gms_features.xml; do
+        if [ -e "$file" ]; then
+            echo "$file"
+            return
         fi
     done
-done
+}
+
+origin=$(find_origin)
+
+if [[ $origin == *my_bigball* ]]; then
+    target=$MODPATH/oplus_google_cn_gms_features.xml
+    echo -e '#!/system/bin/sh\nmount -o ro,bind ${0%/*}/oplus_google_cn_gms_features.xml /my_bigball/etc/permissions/oplus_google_cn_gms_features.xml' > $MODPATH/post-fs-data.sh
+    # echo 'sleep 60; umount /my_bigball/etc/permissions/oplus_google_cn_gms_features.xml' > $MODPATH/service.sh
+elif [[ $origin == *my_product* ]]; then
+    target=$MODPATH/oplus_google_cn_gms_features.xml
+    echo -e '#!/system/bin/sh\nmount -o ro,bind ${0%/*}/oplus_google_cn_gms_features.xml /my_product/etc/permissions/oplus_google_cn_gms_features.xml' > $MODPATH/post-fs-data.sh
+elif [[ $origin == *my_heytap* ]]; then
+    target=$MODPATH/my_heytap_cn_gms_features.xml
+    echo -e '#!/system/bin/sh\nmount -o ro,bind ${0%/*}/my_heytap_cn_gms_features.xml /my_heytap/etc/permissions/my_heytap_cn_gms_features.xml' > $MODPATH/post-fs-data.sh
+    if [[ -e /my_heytap/etc/permissions/my_heytap_cn_features.xml ]]; then
+        echo -e '\nmount -o ro,bind ${0%/*}/my_heytap_cn_features.xml /my_heytap/etc/permissions/my_heytap_cn_features.xml' >> $MODPATH/post-fs-data.sh
+        heytap_cn_features_orgin=/my_heytap/etc/permissions/my_heytap_cn_features.xml
+        heytap_cn_features_target=$MODPATH/my_heytap_cn_features.xml
+    fi
+elif [[ $origin == *system* ]]; then
+    target=$MODPATH$origin    
+else
+    target=$MODPATH/system$origin
+fi
+
+mkdir -p $(dirname $target)
+cp -f $origin $target
+sed -i '/cn.google.services/d' $target
+sed -i '/services_updater/d' $target
+ui_print "modify $origin"
+
+if [[ -e $heytap_cn_features_orgin ]]; then
+mkdir -p $(dirname $heytap_cn_features_target)
+cp -f $heytap_cn_features_orgin $heytap_cn_features_target
+sed -i '/cn.google.services/d' $heytap_cn_features_target
+sed -i '/services_updater/d' $heytap_cn_features_target
+ui_print "modify $heytap_cn_features_orgin"
+fi
 
 DEF_DIALER=`cmd package resolve-activity --brief -a android.intent.action.DIAL | grep com.google.android.dialer`
 if [ -n "$DEF_DIALER" ]; then
@@ -81,9 +103,4 @@ fi
 if [ -d /my_heytap/app ]; then
     cp -ar /my_heytap/app/. ${MODPATH}/xml/my_heytap/app/
     cp -a ${MODPATH}/xml/GoogleLocationHistory ${MODPATH}/xml/my_heytap/app/
-fi
-
-if [ -d /my_heytap/priv-app ]; then
-    cp -ar /my_heytap/priv-app/. ${MODPATH}/xml/my_heytap/priv-app/
-    cp -a ${MODPATH}/xml/GoogleServicesFramework ${MODPATH}/xml/my_heytap/priv-app/
 fi
